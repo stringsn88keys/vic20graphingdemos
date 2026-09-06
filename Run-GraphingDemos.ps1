@@ -78,6 +78,12 @@ try {
         # present on #8 in that mode (confirmed live: without it every
         # LOAD fails "DEVICE NOT PRESENT" even with the directory and
         # drive type set correctly)
+        # +VICdsize: with -ntsc, this VICE build's double-size setting (on
+        # by default in the saved VIC20 config on at least one machine)
+        # renders NTSC at 2x into a window sized for 1x, so only the
+        # top-left quarter of the screen is visible (confirmed live).
+        # Forcing double-size off avoids this regardless of what's saved.
+        '-ntsc', '+VICdsize',
         '+drive8truedrive', '-trapdevice8', '-drive8type', '1541', '-fs8', $workDir,
         '-keybuf', 'load\"sine\",8,1\nrun\n'
     )
