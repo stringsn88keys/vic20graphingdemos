@@ -1,5 +1,7 @@
 9 rem clear the screen
 10 print chr$(147)
+11 rem this file is padded - being much smaller than sinecos.bas broke the
+12 rem chain-load into it (confirmed live, see claude.md)
 19 rem reserve memory above $1c00 for custom characters, then clear basic
 20 poke 52,28 : poke 56,28 : clr
 29 rem point the vic chip at screen ram $1e00 and char ram $1c00
